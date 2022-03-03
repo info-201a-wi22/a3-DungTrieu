@@ -1,0 +1,70 @@
+---
+title: "Assignment 3"
+author: "Ryan Trieu (dtrieu99@uw.edu)"
+date: "03/01/2022"
+output: html_document
+---
+**Affiliation**: "INFO-201: Technical Foundations of Informatics - The Information School - University of Washington"
+
+```{r setup, include = FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(dplyr)
+library(ggplot2)
+library(knitr)
+source("../docs/analysis.R")
+```
+
+
+# 1.0 Introduction 
+
+According to a study from the National Council on Crime and Delinquency in 2006[^1], the United States has come to rely on jail as a reaction to all sorts of crime in the last 30 years. Minor infractions of parole or probation frequently result in a return to prison. This has resulted in a massive jail system in the United States. The research also mentions interesting facts about incarceration in the United States:
+- The United States is home to the world's largest prison population.
+- The incarceration rate in the United States is four times that of the rest of the world.
+- Some US states imprison up to six times the number of individuals as countries with similar populations.
+- The United States has the highest rate of female incarceration in the world.
+- Incarceration rates are not taken into account when calculating crime rates.
+With such a high population of incarcerations, there are bound to be different variables that draw attentions of scholars, activists, and the public in general. In this report, I will discuss 
+
+# 2.0 Summary Information
+County with biggest jail population by race in 2018
+```{r, echo = FALSE, warning=FALSE, message=FALSE}
+biggest_jail_pop_race_2018
+```
+
+County with biggest jail admission by race all time
+```{r, echo = FALSE}
+biggest_prison_adm_race_2018
+``` 
+
+Total prison admission by race all time
+```{r, echo = FALSE} 
+total_prison_adm_race  
+```
+
+Total jail population by race all time
+```{r, echo = FALSE} 
+highest_income_location_2019
+```
+
+Total prison population by race all time
+```{r, echo = FALSE} 
+total_jail_pop_race
+```
+
+Top 10 counties with the highest total jail from ice in 2018
+```{r, echo = FALSE} 
+biggest_jail_ice
+```
+
+# 3.0 Trends over time chart
+Trend of black jail pop vs white jail pop
+
+# 4.0 Variable comparison chart
+The datasets that we chose to analyze are crime data in Seattle that ranges from 2008 to present and then data about Seattle's household income that has average household income by location from 2013 to 2019.
+
+# 5.0 Map
+Map of black jail admission
+
+## References
+[^1]: [Hartney, Christopher. “US Rates of Incarceration: A Global Perspective.” (2006).](https://www.semanticscholar.org/paper/US-Rates-of-Incarceration%3A-A-Global-Perspective-Hartney/cbcc79e99c3ef29a421d2d306db27bea141e5a0d)
