@@ -179,19 +179,46 @@ pre code {
 <p><strong>Affiliation</strong>: “INFO-201: Technical Foundations of Informatics - The Information School - University of Washington”</p>
 <div id="introduction" class="section level1">
 <h1>1.0 Introduction</h1>
-<p>Crime is an issue that many people deeply care about. Crime influences important issues such as our economy and political opinions. Crime rates can vary wildly between different neighborhoods within a city. As an example, downtown Seattle is known for having a higher rate of crime compared to the rest of the city. Our area of research for this project intends to dive deeply into crime data and understand trends that exist within that data. Additionally, we want to identify what kinds of correlations we can draw with crime from other data such as income rates. We will utilize two datasets containing crime and income data within Seattle neighborhoods over the past decade. Our goal is to capture meaningful information that Seattle politicians can utilize to make informed policy decisions that reduce crime in our city. We all would like to make Seattle a safer place to live.</p>
+<p>According to a study from the National Council on Crime and Delinquency in 2006<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>, the United States has come to rely on jail as a reaction to all sorts of crime in the last 30 years. Minor infractions of parole or probation frequently result in a return to prison. This has resulted in a massive jail system in the United States. The research also mentions interesting facts about incarceration in the United States: - The United States is home to the world’s largest prison population. - The incarceration rate in the United States is four times that of the rest of the world. - Some US states imprison up to six times the number of individuals as countries with similar populations. - The United States has the highest rate of female incarceration in the world. - Incarceration rates are not taken into account when calculating crime rates. With such a high population of incarcerations, there are bound to be different variables that draw attentions of scholars, activists, and the public in general. In this report, I will discuss</p>
 </div>
 <div id="summary-information" class="section level1">
 <h1>2.0 Summary Information</h1>
-<p><strong>Framing</strong>: The topic of concern is crime in Seattle. There are multiple elements making this topic, namely: crime types, crime rates, areas of crime, income. Moreover, there are several questions to be asked about: - Does <em>income</em> have a causal relationship with <em>crime rates</em>? - What are the <em>factors</em> of a neighborhood in Seattle that affect <em>crime rate</em> in that area? - What are the most prominent <em>types of crime</em> in Seattle?</p>
-<p><strong>Human values</strong>: Our project concerns with moral values categorized into these factors: <em>Personal-sexual</em>, <em>Social Trust</em>, <em>Legal-illegal</em>, <em>Self-interest</em>, which are the moral factors discussed in the article <em>MORAL VALUES, SOCIAL TRUST AND INEQUALITY: Can Values Explain Crime?</em> [^1] In this study, general measures of moral values and tolerances have little to no relationships with the covariants of crime, but a sub-set of <em>Self-interest</em> items offer some explanations. <em>Self-interest</em> values directly associates with crime rates at national levels. Surprisingly, <em>Standard of Living</em> and <em>Social Trust</em> was not found to be responsible for crime rates, rather, they offered to be conditions for the variance of crime in difference settings.</p>
-<p><strong>Stakeholders</strong>: Our project is open to the public, therefore citizens, politicians, journalists, law practitioners get access to our data. These individuals then can help influence the policies and laws to make people’ lives safer. Internally, the criminal justice system includes those who are responsible for enforcing and interpreting the law. Internal stakeholders of the criminal justice system could potentially include persons who are suspected of crimes and convicted. Externally, the media, groups that serve victims of crime, families, businesses, school and society can be impacted. [^3] People who consume media that use our project’s data can be influenced by the media’ narratives. Similarly, people who are influenced by the politicians’ and law practitioners’ interpretations of our data can have a different viewpoint about these crimes and the elements surrounding them.</p>
-<p><strong>Benefits and Harms</strong>: In general, since these data about crimes are unbiased, the public are expected to have an objective and more comprehensive view of the crimes, the income, and the direct stakeholders. Law enforcement can better make a case to acquire these resources needed to fight crime. [^2] Crime-fighting problems can be addressed to find solutions. On the other hand, direct stakeholders can misinterpret the data in order to spread mis/disinformation for unethical/selfish motives. Insufficient data could also cause data errors that shape the results in unintentional ways. Moreover, social media can have a bias view of this data, representing a false narrative of crime data. This following figure shows the difference between frequencies of different types of crimes against crime-related tweets. [^4]</p>
+<p>County with biggest jail population by race in 2018</p>
+<pre><code>##          county_name aapi_jail_pop black_jail_pop latinx_jail_pop
+## 1 Los Angeles County         90.57           5024            8728
+##   native_jail_pop white_jail_pop other_race_jail_pop
+## 1              12           2579                 608</code></pre>
+<p>County with biggest jail admission by race all time</p>
+<pre><code>##          county_name aapi_prison_adm black_prison_adm latinx_prison_adm
+## 1 Los Angeles County              83            16354             11141
+##   native_prison_adm white_prison_adm other_race_prison_adm
+## 1                79             8119                  3939</code></pre>
+<p>Total prison admission by race all time</p>
+<pre><code>##   aapi_prison_adm black_prison_adm latinx_prison_adm native_prison_adm
+## 1           52755          5850096           2108065            188898
+##   white_prison_adm other_race_prison_adm
+## 1          5579082                199575</code></pre>
+<p>Total jail population by race all time</p>
+<pre><code>##   aapi_jail_pop black_jail_pop latinx_jail_pop native_jail_pop white_jail_pop
+## 1      192596.5        7891239         3220014          240838        8814789
+##   other_race_jail_pop
+## 1            178066.7</code></pre>
+<p>Top 10 counties with the highest total jail from ice in 2018</p>
+<pre><code>##       county_name state total_jail_from_ice
+## 1   Orange County    CA              840.00
+## 2    Irwin County    GA              829.00
+## 3     York County    PA              779.00
+## 4  Broward County    FL              677.00
+## 5   Hudson County    NJ              608.00
+## 6    Essex County    NJ              582.00
+## 7  Haskell County    TX              330.55
+## 8   Bergen County    NJ              329.00
+## 9  McHenry County    IL              298.00
+## 10  Etowah County    AL              281.00</code></pre>
 </div>
 <div id="trends-over-time-chart" class="section level1">
 <h1>3.0 Trends over time chart</h1>
-<p>Our questions revolve around identifying trends in crime rates within Seattle. The questions that we want to explore are: - What <em>types</em> of crime are the most common in Seattle? - How have the crime rates <em>changed</em> over the decade? - How does the crime rate <em>differ</em> between neighborhoods within Seattle? - What <em>areas</em> of Seattle have the highest crime rates? - What is the <em>relationship</em> between income and crime rates in Seattle?</p>
-<p>We will address these questions by creating visualizations of crime rates over the different neighborhoods within the city. The answer to these questions will help us understand whether crime in Seattle is improving or getting worse. We can compare trends within different neighborhoods to identify which neighborhoods handle crime better than others. We want to see if a correlation exists between crime rates and income rates within Seattle.</p>
+<p>Trend of black jail pop vs white jail pop</p>
 </div>
 <div id="variable-comparison-chart" class="section level1">
 <h1>4.0 Variable comparison chart</h1>
@@ -199,7 +226,16 @@ pre code {
 </div>
 <div id="map" class="section level1">
 <h1>5.0 Map</h1>
-<p>Map here</p>
+<p>Map of black jail admission</p>
+<div id="references" class="section level2">
+<h2>References</h2>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol>
+<li id="fn1"><p><a href="https://www.semanticscholar.org/paper/US-Rates-of-Incarceration%3A-A-Global-Perspective-Hartney/cbcc79e99c3ef29a421d2d306db27bea141e5a0d">Hartney, Christopher. “US Rates of Incarceration: A Global Perspective.” (2006).</a><a href="#fnref1" class="footnote-back">↩︎</a></p></li>
+</ol>
 </div>
 
 

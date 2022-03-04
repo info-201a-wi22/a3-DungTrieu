@@ -42,12 +42,8 @@ Total prison admission by race all time
 total_prison_adm_race  
 ```
 
-Total jail population by race all time
-```{r, echo = FALSE} 
-highest_income_location_2019
-```
 
-Total prison population by race all time
+Total jail population by race all time
 ```{r, echo = FALSE} 
 total_jail_pop_race
 ```

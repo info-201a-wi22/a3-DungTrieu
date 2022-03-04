@@ -1,4 +1,3 @@
-setwd("/Users/dtrieu99/documents/a3-DungTrieu")
 
 library(dplyr)
 library(tidyverse)
