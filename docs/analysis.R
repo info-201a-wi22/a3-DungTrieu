@@ -2,8 +2,10 @@
 library(dplyr)
 library(tidyverse)
 library(ggplot2)
+library(tidyr)
+library(data.table)
 
-incarceration_trends <- read.csv("/Users/dtrieu99/documents/a3-DungTrieu/source/incarceration_trends.csv")
+incarceration_trends <- read.csv("~/documents/INFO-201-Exercises/a3-DungTrieu/source/incarceration_trends.csv")
 
 incarceration_trends_by_county <- incarceration_trends %>%
   group_by(county_name) %>%
@@ -44,3 +46,36 @@ biggest_jail_ice <- incarceration_trends %>%
   arrange(desc(total_jail_from_ice)) %>%
   head(10) %>%
   select(county_name, state, total_jail_from_ice)
+
+
+top_5_jail_pop_data_WA_2018 <- incarceration_trends %>%
+  group_by(state) %>%
+  filter(state == "WA") %>%
+  filter(year == "2018") %>%
+  select(county_name,year,aapi_jail_pop, black_jail_pop, latinx_jail_pop, native_jail_pop, white_jail_pop
+         , other_race_jail_pop, total_jail_pop) %>%
+  arrange(desc(total_jail_pop)) %>%
+  head(5) 
+
+jail_pop_data_WA <- incarceration_trends %>%
+  filter(state == "WA") %>%
+  filter( county_name == "King County") %>%
+  filter(  year =="2014"|
+           year =="2015"| 
+           year =="2016"|
+           year =="2017"|
+           year =="2018") %>%
+  select(year, black_jail_pop_rate, white_jail_pop_rate,-state) %>%
+  setnames(old = c('black_jail_pop_rate','white_jail_pop_rate'), 
+           new = c('Black','White')) %>%
+  gather(key = race, value = rate, -year)
+
+trend_chart <- ggplot(data=jail_pop_data_WA, aes(x=year, y=rate, group=race)) +
+  geom_line(aes(color=race))+
+  geom_point(aes(color=race)) +
+  ggtitle("Trend of black incarceration rates vs white incarceration rates in King County from 2014-2018") +
+  labs(y= "Incarceration Rates", x = "Year", fill="Race")
+
+trend_chart
+
+  

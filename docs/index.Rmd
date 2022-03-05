@@ -29,32 +29,35 @@ With such a high population of incarcerations, there are bound to be different v
 # 2.0 Summary Information
 County with biggest jail population by race in 2018
 ```{r, echo = FALSE, warning=FALSE, message=FALSE}
-biggest_jail_pop_race_2018
+kable(biggest_jail_pop_race_2018)
 ```
 
 County with biggest jail admission by race all time
 ```{r, echo = FALSE}
-biggest_prison_adm_race_2018
+kable(biggest_prison_adm_race_2018)
 ``` 
 
 Total prison admission by race all time
 ```{r, echo = FALSE} 
-total_prison_adm_race  
+kable(total_prison_adm_race)  
 ```
 
 
 Total jail population by race all time
 ```{r, echo = FALSE} 
-total_jail_pop_race
+kable(total_jail_pop_race)
 ```
 
 Top 10 counties with the highest total jail from ice in 2018
 ```{r, echo = FALSE} 
-biggest_jail_ice
+kable(biggest_jail_ice)
 ```
 
 # 3.0 Trends over time chart
-Trend of black jail pop vs white jail pop
+Trend of black jail pop vs white jail pop in King County from 2014-2018
+```{r, echo = FALSE} 
+trend_chart
+```
 
 # 4.0 Variable comparison chart
 The datasets that we chose to analyze are crime data in Seattle that ranges from 2008 to present and then data about Seattle's household income that has average household income by location from 2013 to 2019.
