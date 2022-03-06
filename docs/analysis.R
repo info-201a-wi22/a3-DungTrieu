@@ -4,6 +4,10 @@ library(tidyverse)
 library(ggplot2)
 library(tidyr)
 library(data.table)
+library(usmap)
+
+options(scipen=999)
+
 
 incarceration_trends <- read.csv("~/documents/INFO-201-Exercises/a3-DungTrieu/source/incarceration_trends.csv")
 
@@ -78,4 +82,25 @@ trend_chart <- ggplot(data=jail_pop_data_WA, aes(x=year, y=rate, group=race)) +
 
 trend_chart
 
+jail_capacity <- incarceration_trends %>%
+  group_by(state) %>%
+  filter(year == "2018", na.rm = TRUE) %>%
+  arrange(desc(jail_rated_capacity)) %>%
+  select(county_name, jail_rated_capacity, total_jail_adm) %>%
+  head(20) 
+
+variable_chart <- ggplot(data=jail_capacity, aes(x=jail_rated_capacity, y=total_jail_adm)) +
+  geom_point() +
+  geom_smooth(method = "lm", se = FALSE) +
+  ggtitle("Rated capacity vs Total Jail Admissions Count") +
+  labs(y= "Rated capacity", x = "Total Jail Admissions Count")
+
+variable_chart
+
+
   
+map <- plot_usmap(data = biggest_jail_ice, values = "total_jail_from_ice", color = "red") + 
+  scale_fill_continuous(name = "total_jail_from_ice (2018)", label = scales::comma) + 
+  theme(legend.position = "right")
+
+map

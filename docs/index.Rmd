@@ -53,6 +53,11 @@ Top 10 counties with the highest total jail from ice in 2018
 kable(biggest_jail_ice)
 ```
 
+Top 5 counties in Washington State with highest jail population in 2018
+```{r, echo = FALSE}
+kable(top_5_jail_pop_data_WA_2018)
+```
+
 # 3.0 Trends over time chart
 Trend of black jail pop vs white jail pop in King County from 2014-2018
 ```{r, echo = FALSE} 
@@ -60,10 +65,16 @@ trend_chart
 ```
 
 # 4.0 Variable comparison chart
-The datasets that we chose to analyze are crime data in Seattle that ranges from 2008 to present and then data about Seattle's household income that has average household income by location from 2013 to 2019.
+Rated capacity vs Total Jail Admissions Count
+```{r, echo = FALSE} 
+variable_chart
+```
 
 # 5.0 Map
-Map of black jail admission
+Map of top 5 states with biggest Jail Population Count Held for ICE
+```{r, echo = FALSE} 
+map
+```
 
 ## References
 [^1]: [Hartney, Christopher. “US Rates of Incarceration: A Global Perspective.” (2006).](https://www.semanticscholar.org/paper/US-Rates-of-Incarceration%3A-A-Global-Perspective-Hartney/cbcc79e99c3ef29a421d2d306db27bea141e5a0d)
