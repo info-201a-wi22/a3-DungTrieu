@@ -19,11 +19,13 @@ source("../docs/analysis.R")
 # 1.0 Introduction 
 
 According to a study from the National Council on Crime and Delinquency in 2006[^1], the United States has come to rely on jail as a reaction to all sorts of crime in the last 30 years. Minor infractions of parole or probation frequently result in a return to prison. This has resulted in a massive jail system in the United States. The research also mentions interesting facts about incarceration in the United States:
+
 - The United States is home to the world's largest prison population.
 - The incarceration rate in the United States is four times that of the rest of the world.
 - Some US states imprison up to six times the number of individuals as countries with similar populations.
 - The United States has the highest rate of female incarceration in the world.
 - Incarceration rates are not taken into account when calculating crime rates.
+
 With such a high population of incarcerations, there are bound to be different variables that draw attentions of scholars, activists, and the public in general. In this report, I will discuss 
 
 # 2.0 Summary Information
@@ -31,6 +33,7 @@ County with biggest jail population by race in 2018
 ```{r, echo = FALSE, warning=FALSE, message=FALSE}
 kable(biggest_jail_pop_race_2018)
 ```
+
 
 County with biggest jail admission by race all time
 ```{r, echo = FALSE}
@@ -63,18 +66,23 @@ Trend of black jail pop vs white jail pop in King County from 2014-2018
 ```{r, echo = FALSE} 
 trend_chart
 ```
+I include this chart to see if there is a relationship between these two variables: black vs white incarceration rates and to see if there is clear evidence of racial motives. It seems that the trends for black jail pop vs white jail pop are similar. However the lack of additional and accurate data prevents us from drawing conclusions to their relationships, causes/drives, and most important, racial diversity.
 
 # 4.0 Variable comparison chart
 Rated capacity vs Total Jail Admissions Count
-```{r, echo = FALSE} 
+```{r, echo = FALSE, message = FALSE} 
 variable_chart
 ```
+I include this chart to figure out if the rated capacity(the number of people or beds a facility can hold, as set by a rating official)[^2] of a jail affects the total jail admission of that facility. Jail Rated Capacity on Total Jail Admissions Count shows a positive somewhat linear relationship. There is still a lot of variability and the variability does not appear to be constant. There seems to be a relationship between these two variables, but there is not sufficient evidence to conclude that their relationship is causal.
 
 # 5.0 Map
 Map of top 5 states with biggest Jail Population Count Held for ICE
 ```{r, echo = FALSE} 
 map
 ```
+I include this map to see if there is anything interesting related to the Jail Population Count held for ICE and the states that have the highest counts. According to the Federal Aviation Administration [^3], these states also have the highest Passenger Boarding (Enplanement) counts. There is strong evidence that Jail Population Count held for ICE and Passenger Boarding are related.
 
 ## References
 [^1]: [Hartney, Christopher. “US Rates of Incarceration: A Global Perspective.” (2006).](https://www.semanticscholar.org/paper/US-Rates-of-Incarceration%3A-A-Global-Perspective-Hartney/cbcc79e99c3ef29a421d2d306db27bea141e5a0d)
+[^2]:[Initiative, P. P. (n.d.). Since you asked: Just how overcrowded were prisons before the pandemic, and at this time of social distancing, how overcrowded are they now? Prison Policy Initiative. Retrieved March 7, 2022](https://www.prisonpolicy.org/blog/2020/12/21/overcrowding/)  
+[^3]: [Passenger boarding (enplanement) and all-cargo data for U.S. airports – airports. (2022, January 11). Retrieved March 7, 2022](https://www.faa.gov/airports/planning_capacity/passenger_allcargo_stats/passenger/index.cfm?year=)

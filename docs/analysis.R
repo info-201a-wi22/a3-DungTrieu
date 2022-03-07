@@ -5,7 +5,6 @@ library(ggplot2)
 library(tidyr)
 library(data.table)
 library(usmap)
-
 options(scipen=999)
 
 
@@ -23,16 +22,25 @@ biggest_jail_pop_race_2018 <- incarceration_trends %>%
   filter(year == 2018) %>%
   filter(total_pop == max(total_pop)) %>%
   select(county_name, aapi_jail_pop, black_jail_pop, latinx_jail_pop, native_jail_pop, white_jail_pop
-         , other_race_jail_pop)
+         , other_race_jail_pop) %>%
+  setnames(old = c('aapi_jail_pop', 'black_jail_pop', 'latinx_jail_pop', 'native_jail_pop', 'white_jail_pop'
+         , 'other_race_jail_pop'), 
+         new = c('Asian American / Pacific Islander','Black', 'Latinx', 'Native American','White','Other')) 
 
 biggest_prison_adm_race_2018 <- incarceration_trends %>%
   filter(total_prison_adm == max(total_prison_adm, na.rm = TRUE)) %>%
   select(county_name, aapi_prison_adm, black_prison_adm, latinx_prison_adm, native_prison_adm, white_prison_adm
-         , other_race_prison_adm)
+         , other_race_prison_adm) %>%
+  setnames(old = c('aapi_prison_adm', 'black_prison_adm', 'latinx_prison_adm', 'native_prison_adm', 'white_prison_adm'
+                   , 'other_race_prison_adm'), 
+           new = c('Asian American / Pacific Islander','Black', 'Latinx', 'Native American','White','Other'))
 
 adm_race_count <- incarceration_trends %>%
   select(aapi_prison_adm, black_prison_adm, latinx_prison_adm, native_prison_adm, white_prison_adm
          , other_race_prison_adm) %>%
+  setnames(old = c('aapi_prison_adm', 'black_prison_adm', 'latinx_prison_adm', 'native_prison_adm', 'white_prison_adm'
+                   , 'other_race_prison_adm'), 
+           new = c('Asian American / Pacific Islander','Black', 'Latinx', 'Native American','White','Other')) %>%
   colSums(na.rm = TRUE)
 
 total_prison_adm_race <- data.frame(t(adm_race_count))
@@ -40,6 +48,9 @@ total_prison_adm_race <- data.frame(t(adm_race_count))
 jail_pop_count <- incarceration_trends %>%
   select(aapi_jail_pop, black_jail_pop, latinx_jail_pop, native_jail_pop, white_jail_pop
          , other_race_jail_pop) %>%
+  setnames(old = c('aapi_jail_pop', 'black_jail_pop', 'latinx_jail_pop', 'native_jail_pop', 'white_jail_pop'
+                   , 'other_race_jail_pop'), 
+           new = c('Asian American / Pacific Islander','Black', 'Latinx', 'Native American','White','Other')) %>%
   colSums(na.rm = TRUE)
 
 total_jail_pop_race <- data.frame(t(jail_pop_count))
@@ -57,7 +68,10 @@ top_5_jail_pop_data_WA_2018 <- incarceration_trends %>%
   filter(state == "WA") %>%
   filter(year == "2018") %>%
   select(county_name,year,aapi_jail_pop, black_jail_pop, latinx_jail_pop, native_jail_pop, white_jail_pop
-         , other_race_jail_pop, total_jail_pop) %>%
+         , other_race_jail_pop,total_jail_pop) %>%
+  setnames(old = c('aapi_jail_pop', 'black_jail_pop', 'latinx_jail_pop', 'native_jail_pop', 'white_jail_pop'
+                   , 'other_race_jail_pop'), 
+           new = c('Asian American / Pacific Islander','Black', 'Latinx', 'Native American','White','Other')) %>%
   arrange(desc(total_jail_pop)) %>%
   head(5) 
 
@@ -98,7 +112,6 @@ variable_chart <- ggplot(data=jail_capacity, aes(x=jail_rated_capacity, y=total_
 variable_chart
 
 
-  
 map <- plot_usmap(data = biggest_jail_ice, values = "total_jail_from_ice", color = "red") + 
   scale_fill_continuous(name = "total_jail_from_ice (2018)", label = scales::comma) + 
   theme(legend.position = "right")
